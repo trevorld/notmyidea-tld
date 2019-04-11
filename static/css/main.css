@@ -115,14 +115,40 @@ cite {}
 
 q {}
 
-div.note {
-   float: right;
-   margin: 5px;
-   font-size: 85%;
-   max-width: 300px;
+/* Admonitions */
+div.admonition {
+    float: right;
+    margin: 5px;
+    font-size: 85%;
+    max-width: 300px;
+    background-color: yellow;
+}
+
+p.admonition-title {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+/* Figures */
+p.caption {
+    font-weight: bold;
+    font-size: 120%;
+}
+.align-left {
+    text-align: left;
+}
+.align-center {
+    text-align: center;
+}
+.align-right {
+    text-align: right;
 }
 
 /* Tables */
+caption {
+    font-weight: bold;
+    font-size: 120%;
+}
 table {margin: .5em auto 1.5em auto; width: 98%;}
 
 	/* Thead */

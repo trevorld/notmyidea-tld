@@ -6,6 +6,7 @@ This is a theme for use with the `Pelican <https://blog.getpelican.com/>`__ stat
 This theme has the following changes from Pelican's built-in ``notmyidea`` theme:
 
 1. Replaces the default footnote text with the contents of a new ``FOOTNOTE`` setting (defaults to no footnote)
+#. Improved CSS styling for restructuredText's ``figure``, ``admonition``, and ``list-table`` `directives <http://docutils.sourceforge.net/docs/ref/rst/directives.html#admonitions>`__.
 
 installation
 ------------
