@@ -1,16 +1,17 @@
 notmyidea-tld
 =============
 
-This is a theme for use with the `Pelican`_ static site generator that is a derivative from Pelican's built-in ``notmyidea`` theme.  
+This is a theme for use with the `Pelican`_ static site generator that is a derivative from Pelican's built-in `notmyidea theme`_.  
 
-This theme has the following changes from Pelican's built-in ``notmyidea`` theme:
+This theme has the following changes from Pelican's built-in `notmyidea theme`_:
 
 1. Replaces the default footnote text with the contents of a new ``FOOTNOTE`` setting (defaults to no footnote)
 #. Improved CSS styling for restructuredText's ``admonition``, ``contents``, ``figure``, and ``list-table`` `directives <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`__.
-#. Add support for the `Pelican Comment System`_ plugin.
+#. Adds support for the `Pelican Comment System`_ plugin.
 
 .. _Pelican: https://blog.getpelican.com/
 .. _Pelican Comment System: https://github.com/Scheirle/pelican_comment_system
+.. _notmyidea theme: https://github.com/getpelican/pelican/tree/master/pelican/themes/notmyidea
 
 installation
 ------------
@@ -48,6 +49,6 @@ license
 
 This theme contains open-source content from:
 
-1. Pelican_'s builtin `notmyidea theme <https://github.com/getpelican/pelican/tree/master/pelican/themes/notmyidea>`_
+1. Pelican_'s builtin `notmyidea theme`_
 2. `Pelican Comment System`_'s `theme snippets <https://github.com/Scheirle/pelican_comment_system/tree/master/theme>`_
 3. Additional modifications by me.  I personally do not add any license restrictions on top of the open-source licenses of those themes from the above projects.
