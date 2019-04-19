@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import 'pcs/comments.html' as pcs with context %}
 {% block html_lang %}{{ article.lang }}{% endblock %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
 
@@ -41,6 +42,10 @@
     </div>
     {% endif %}
 
+    {% if PELICAN_COMMENT_SYSTEM %}
+    {{ pcs.comments_quickstart(PELICAN_COMMENT_SYSTEM_EMAIL_USER, 
+                               PELICAN_COMMENT_SYSTEM_EMAIL_DOMAIN) }}
+    {% endif %}
   </article>
 </section>
 {% endblock %}
