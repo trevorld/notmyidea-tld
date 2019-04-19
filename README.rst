@@ -1,7 +1,7 @@
 notmyidea-tld
 =============
 
-This is a theme for use with the `Pelican`__ static site generator that is a derivative from Pelican's built-in ``notmyidea`` theme.  
+This is a theme for use with the `Pelican`_ static site generator that is a derivative from Pelican's built-in ``notmyidea`` theme.  
 
 This theme has the following changes from Pelican's built-in ``notmyidea`` theme:
 
