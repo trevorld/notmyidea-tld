@@ -8,6 +8,8 @@ This theme has the following changes from Pelican's built-in `notmyidea theme`_:
 1. Replaces the default footnote text with the contents of a new ``FOOTNOTE`` setting (defaults to no footnote)
 #. Improved CSS styling for restructuredText's ``admonition``, ``contents``, ``figure``, and ``list-table`` `directives <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`__.
 #. Adds support for the `Pelican Comment System`_ plugin.
+#. More distinctive differences between ``h2``, ``h3``, and ``h4`` sub-headings.
+#. No longer embeds the sans-serif 'Yanone Kaffeesatz' font for use in heading but instead relies on user-provided serif font (i.e. Times New Roman).
 
 .. _Pelican: https://blog.getpelican.com/
 .. _Pelican Comment System: https://github.com/Scheirle/pelican_comment_system
