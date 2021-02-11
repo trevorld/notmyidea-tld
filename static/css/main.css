@@ -46,6 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {font-variant: small-caps}
 h3 {font-style: italic}
+h4 {font-weight: bold}
 
 h3, h4, h5, h6 { margin-top: .8em; }
 h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link,
