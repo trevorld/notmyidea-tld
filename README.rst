@@ -10,6 +10,9 @@ This theme has the following changes from Pelican's built-in `notmyidea theme`_:
 #. Adds support for the `Pelican Comment System`_ plugin.
 #. More distinctive differences between ``h2``, ``h3``, and ``h4`` sub-headings.
 #. No longer embeds the sans-serif 'Yanone Kaffeesatz' font for use in heading but instead relies on user-provided serif font (i.e. Times New Roman).
+#. Lists of blog articles have "better" styling.  
+   No longer shows all of first article (and then summaries) but 
+   instead shows only summaries of all articles.
 
 .. _Pelican: https://blog.getpelican.com/
 .. _Pelican Comment System: https://github.com/Scheirle/pelican_comment_system
