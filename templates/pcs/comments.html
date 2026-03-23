@@ -125,17 +125,14 @@
 {% endmacro %}
 
 
-{% macro comments_js(user, domain, includeJquery=True) %}
+{% macro comments_js(user, domain) %}
 {% if PELICAN_COMMENT_SYSTEM %}
-	{% if includeJquery %}
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	{% endif %}
 	<script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/comments.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
+		document.addEventListener('DOMContentLoaded', function() {
 			CommentSystem.email_user   = "{{ user }}";
 			CommentSystem.email_domain = "{{ domain }}";
-			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) { 
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) {
 				return ''
 					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
 					+ 	'×'
@@ -143,11 +140,11 @@
 					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
 			};
 
-			$('#pcs-comment-form').on("submit",
+			document.getElementById('pcs-comment-form').addEventListener('submit',
 				function( event )
 				{
 					event.preventDefault();
-					$(location).attr('href', CommentSystem.getMailtoLink("{{ article.slug }}"));
+					window.location.href = CommentSystem.getMailtoLink("{{ article.slug }}");
 				}
 			);
 		});
@@ -158,5 +155,5 @@
 {% macro comments_quickstart(user, domain) %}
 	{{ comments_styles() }}
 	{{ comments_with_form() }}
-	{{ comments_js(user, domain, True) }}
+	{{ comments_js(user, domain) }}
 {% endmacro %}
