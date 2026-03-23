@@ -1,27 +1,28 @@
-//requires jquery
 var CommentSystem = {
 	email_user:   "not set",
 	email_domain: "not set",
 	display_replyto_html: function(comment_content, article_slug, author) {return ''},
 
 	cancelReply: function() {
-		$('#pcs-comment-form-input-replyto').val("");
-		$('#pcs-comment-form-display-replyto').hide();
+		document.getElementById('pcs-comment-form-input-replyto').value = "";
+		document.getElementById('pcs-comment-form-display-replyto').style.display = 'none';
 	},
 
 	setReply: function(slug, author) {
 		slug   = decodeURIComponent(slug);
 		author = decodeURIComponent(author);
 
-		$('html, body').animate({ scrollTop: $("#pcs-comment-form").offset().top }, 1000);
+		var form = document.getElementById('pcs-comment-form');
+		form.scrollIntoView({ behavior: 'smooth' });
 
-		$('#pcs-comment-form-input-replyto').val(slug);
+		document.getElementById('pcs-comment-form-input-replyto').value = slug;
 
-		var jquery_escaped_id = slug.replace('.', '\\.')
-		var commentContent = $('#comment-' + jquery_escaped_id + ' .pcs-comment-content:first').text().trim()
+		var commentEl = document.querySelector('#comment-' + CSS.escape(slug) + ' .pcs-comment-content');
+		var commentContent = commentEl ? commentEl.textContent.trim() : '';
 
-		$('#pcs-comment-form-display-replyto').html(this.display_replyto_html(commentContent, slug, author));
-		$('#pcs-comment-form-display-replyto').show();
+		var replytoEl = document.getElementById('pcs-comment-form-display-replyto');
+		replytoEl.innerHTML = this.display_replyto_html(commentContent, slug, author);
+		replytoEl.style.display = '';
 	},
 
 	getMailtoLink: function(slug) {
@@ -35,7 +36,7 @@ var CommentSystem = {
 			return (norm < 10 ? '0' : '') + norm;
 		};
 		var body = ''
-			+ 'Hey,\nI posted a new comment on ' + document.URL + '\n\nGreetings ' + $("#pcs-comment-form-input-name").val() + '\n\n\n'
+			+ 'Hey,\nI posted a new comment on ' + document.URL + '\n\nGreetings ' + document.getElementById('pcs-comment-form-input-name').value + '\n\n\n'
 			+ 'Raw comment data:\n'
 			+ '----------------------------------------\n'
 			+ 'email: \n' // just that I don't forget to write it down
@@ -46,15 +47,15 @@ var CommentSystem = {
 					+ ':' + pad(now.getMinutes())
 					+ dif + pad(tzo / 60)
 					+ ':' + pad(tzo % 60) +'\n'
-			+ 'author: ' + $("#pcs-comment-form-input-name").val() + '\n';
+			+ 'author: ' + document.getElementById('pcs-comment-form-input-name').value + '\n';
 
-		var replyto = $('#pcs-comment-form-input-replyto').val();
+		var replyto = document.getElementById('pcs-comment-form-input-replyto').value;
 		if (replyto.length != 0)
 		{
 			body += 'replyto: ' + replyto + '\n'
 		}
 
-		var url = $("#pcs-comment-form-input-website").val();
+		var url = document.getElementById('pcs-comment-form-input-website').value;
 		if (url.length != 0)
 		{
 			if(url.substr(0,7) != 'http://' && url.substr(0,8) != 'https://'){
@@ -63,7 +64,7 @@ var CommentSystem = {
 			body += 'website: ' + url + '\n';
 		}
 		body += '\n'
-			+ $("#pcs-comment-form-input-textarea").val() + '\n'
+			+ document.getElementById('pcs-comment-form-input-textarea').value + '\n'
 			+ '----------------------------------------\n';
 
 		var link = 'mailto:' + this.email_user + '@' + this.email_domain + '?subject='
